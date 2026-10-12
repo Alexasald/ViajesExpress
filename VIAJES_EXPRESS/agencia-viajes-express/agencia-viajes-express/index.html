@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Agencia de Viajes Express: paquetes turísticos y registro de clientes.">
+    <title>Agencia de Viajes Express | Inicio</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+
+<body>
+
+    <!-- Menú de navegación (se genera con utilidades.js) -->
+    <header id="menu-principal"></header>
+
+    <main>
+        <!-- Banner con imagen de fondo -->
+        <section class="hero d-flex align-items-center">
+            <div class="container py-5">
+                <div class="row">
+                    <div class="col-lg-8">
+                        <span class="etiqueta"><i class="bi bi-stars me-1"></i>Tu próxima aventura empieza aquí</span>
+                        <h1 class="mb-3">Viaja más rápido,<br>viaja con Express</h1>
+                        <p class="lead mb-4">
+                            Paquetes turísticos listos para despegar: playas, ciudades, selvas y desiertos.
+                            Elige tu destino, regístrate y nosotros nos encargamos del resto.
+                        </p>
+                        <div
+                            class="d-flex flex-column flex-sm-row gap-3 justify-content-center justify-content-lg-start">
+                            <a href="servicios.html" class="btn btn-accent btn-lg px-4">
+                                <i class="bi bi-airplane me-2"></i>Reserva tu viaje ahora
+                            </a>
+                            <a href="registro.html" class="btn btn-outline-light btn-lg px-4">Registrarme</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Carrusel de destinos populares -->
+        <section class="container my-5 py-3" id="destinos">
+            <div class="text-center">
+                <h2 class="section-title">Destinos populares</h2>
+            </div>
+
+            <div id="carruselDestinos" class="carousel slide carousel-agencia" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carruselDestinos" data-bs-slide-to="0" class="active"
+                        aria-current="true" aria-label="Cancún"></button>
+                    <button type="button" data-bs-target="#carruselDestinos" data-bs-slide-to="1"
+                        aria-label="Europa"></button>
+                    <button type="button" data-bs-target="#carruselDestinos" data-bs-slide-to="2"
+                        aria-label="Nueva York"></button>
+                    <button type="button" data-bs-target="#carruselDestinos" data-bs-slide-to="3"
+                        aria-label="Dubái"></button>
+                </div>
+
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="img/destino-cancun.jpg" class="d-block w-100" alt="Playa de Cancún">
+                        <div class="carousel-caption">
+                            <h3>Cancún All-Inclusive</h3>
+                            <p>Sol, mar turquesa y todo incluido.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="img/destino-europa.jpg" class="d-block w-100" alt="Ciudades de Europa">
+                        <div class="carousel-caption">
+                            <h3>Europa en 15 días</h3>
+                            <p>Madrid, París, Roma y Ámsterdam en un solo viaje.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="img/destino-nueva-york.jpg" class="d-block w-100" alt="Skyline de Nueva York">
+                        <div class="carousel-caption">
+                            <h3>Experiencia en Nueva York</h3>
+                            <p>La ciudad que nunca duerme te espera.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="img/destino-dubai.jpg" class="d-block w-100" alt="Desierto de Dubái">
+                        <div class="carousel-caption">
+                            <h3>Desierto de Dubái</h3>
+                            <p>Lujo, rascacielos y safari entre las dunas.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="carousel-control-prev" type="button" data-bs-target="#carruselDestinos"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Anterior</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carruselDestinos"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Siguiente</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- Información de la agencia y misión -->
+        <section class="bg-arena py-5">
+            <div class="container">
+                <div class="row align-items-center g-4 mb-5">
+                    <div class="col-lg-6">
+                        <h2 class="section-title">Sobre la agencia</h2>
+                        <p>
+                            <strong>Agencia de Viajes Express</strong> nació para simplificar la forma de planear unas
+                            vacaciones.
+                            Reunimos en un solo lugar paquetes turísticos nacionales e internacionales con precios
+                            claros,
+                            itinerarios completos y atención personalizada.
+                        </p>
+                        <h5 class="mt-4"><i class="bi bi-bullseye text-danger me-2"></i>Nuestra misión</h5>
+                        <p class="mb-0">
+                            Hacer que viajar sea accesible, seguro y memorable, acompañando a cada cliente desde su
+                            primer
+                            registro de interés hasta el regreso a casa.
+                        </p>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="row g-3 text-center">
+                            <div class="col-12 col-sm-4 d-flex">
+                                <div class="card valor-card w-100 p-3">
+                                    <div class="valor-icono"><i class="bi bi-geo-alt-fill"></i></div>
+                                    <h6 class="mb-1">10 destinos</h6>
+                                    <p class="small mb-0">Paquetes en 5 continentes.</p>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-4 d-flex">
+                                <div class="card valor-card w-100 p-3">
+                                    <div class="valor-icono"><i class="bi bi-shield-check"></i></div>
+                                    <h6 class="mb-1">Viaje seguro</h6>
+                                    <p class="small mb-0">Políticas de cancelación claras.</p>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-4 d-flex">
+                                <div class="card valor-card w-100 p-3">
+                                    <div class="valor-icono"><i class="bi bi-headset"></i></div>
+                                    <h6 class="mb-1">Atención 24/7</h6>
+                                    <p class="small mb-0">Siempre cerca de ti.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Llamada a la acción -->
+        <section class="cta-band py-5 text-center">
+            <div class="container">
+                <h2 class="mb-3">¿Listo para tu próxima escapada?</h2>
+                <p class="mb-4">Explora el catálogo y encuentra el paquete perfecto para ti.</p>
+                <a href="servicios.html" class="btn btn-accent btn-lg px-5">
+                    <i class="bi bi-airplane me-2"></i>Reserva tu viaje ahora
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Pie de página -->
+    <div id="pie-pagina"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/utilidades.js"></script>
+</body>
+
+</html>

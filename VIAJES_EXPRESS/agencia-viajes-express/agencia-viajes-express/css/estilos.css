@@ -1,0 +1,411 @@
+:root {
+  --azul: #0a3d62;
+  --azul-oscuro: #072b45;
+  --turquesa: #14a8a0;
+  --coral: #ff7a59;
+  --coral-oscuro: #e8613f;
+  --arena: #fdf6ec;
+  --texto: #25323f;
+}
+
+/* ---------- Base: layout flex para que el footer quede abajo ---------- */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  color: var(--texto);
+  background-color: #ffffff;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-weight: 700;
+  color: var(--azul);
+}
+
+/* ---------- Navbar ---------- */
+.navbar-agencia {
+  background-color: var(--azul);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+}
+
+.navbar-agencia .navbar-brand {
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+
+.navbar-agencia .navbar-brand span {
+  color: var(--coral);
+}
+
+.navbar-agencia .nav-link {
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 500;
+  border-radius: 0.5rem;
+  padding: 0.5rem 0.9rem;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.navbar-agencia .nav-link:hover,
+.navbar-agencia .nav-link.active {
+  color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.14);
+}
+
+.navbar-agencia .nav-link.active {
+  box-shadow: inset 0 -3px 0 var(--coral);
+}
+
+/* ---------- Botones ---------- */
+.btn-accent {
+  background-color: var(--coral);
+  border-color: var(--coral);
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.btn-accent:hover,
+.btn-accent:focus {
+  background-color: var(--coral-oscuro);
+  border-color: var(--coral-oscuro);
+  color: #ffffff;
+}
+
+.btn-turquesa {
+  background-color: var(--turquesa);
+  border-color: var(--turquesa);
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.btn-turquesa:hover,
+.btn-turquesa:focus {
+  background-color: #0f8a83;
+  border-color: #0f8a83;
+  color: #ffffff;
+}
+
+/* ---------- Banner (index) ---------- */
+.hero {
+  min-height: 72vh;
+  background:
+    linear-gradient(120deg, rgba(7, 43, 69, 0.82), rgba(20, 168, 160, 0.35)),
+    url('../img/banner-viajes.jpg') center / cover no-repeat;
+  color: #ffffff;
+}
+
+.hero h1 {
+  color: #ffffff;
+  font-size: clamp(2rem, 5vw, 3.6rem);
+  line-height: 1.15;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
+}
+
+.hero .lead {
+  max-width: 560px;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.hero .etiqueta {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 50rem;
+  padding: 0.3rem 0.9rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
+  margin-bottom: 1rem;
+}
+
+/* ---------- Encabezado de páginas internas ---------- */
+.page-header {
+  background:
+    linear-gradient(120deg, rgba(7, 43, 69, 0.88), rgba(10, 61, 98, 0.7)),
+    url('../img/banner-viajes.jpg') center / cover no-repeat;
+  color: #ffffff;
+  padding: 3.2rem 0;
+}
+
+.page-header h1 {
+  color: #ffffff;
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+}
+
+.page-header p {
+  margin-bottom: 0;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* ---------- Secciones ---------- */
+.section-title {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 0.6rem;
+  margin-bottom: 1.5rem;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 60px;
+  height: 4px;
+  border-radius: 4px;
+  background: var(--coral);
+}
+
+.text-center .section-title::after {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.bg-arena {
+  background-color: var(--arena);
+}
+
+/* ---------- Carrusel ---------- */
+.carousel-agencia {
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(10, 61, 98, 0.25);
+  background-color: #0b1f33;
+}
+
+.carousel-agencia .carousel-item {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  max-height: 600px;
+  background-color: #0b1f33;
+}
+
+.carousel-agencia .carousel-item::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--fondo) center / cover no-repeat;
+  filter: blur(28px) brightness(0.65);
+  transform: scale(1.15);
+}
+
+.carousel-agencia .carousel-item img {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.carousel-agencia .carousel-caption {
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.65));
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 3rem 1.5rem 1.6rem;
+}
+
+.carousel-agencia .carousel-caption h3 {
+  color: #ffffff;
+}
+
+/* ---------- Tarjetas de valores (index) ---------- */
+.valor-card {
+  border: 0;
+  border-radius: 1rem;
+  box-shadow: 0 4px 16px rgba(10, 61, 98, 0.1);
+}
+
+.valor-icono {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 1.8rem;
+  color: #ffffff;
+  background: linear-gradient(135deg, var(--turquesa), var(--azul));
+}
+
+/* ---------- Banda de llamada a la acción ---------- */
+.cta-band {
+  background: linear-gradient(120deg, var(--azul), var(--turquesa));
+  color: #ffffff;
+}
+
+.cta-band h2 {
+  color: #ffffff;
+}
+
+/* ---------- Catálogo de paquetes ---------- */
+.card-paquete {
+  border: 0;
+  border-radius: 1rem;
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card-paquete:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 28px rgba(10, 61, 98, 0.22) !important;
+}
+
+.card-paquete .card-img-top {
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-paquete .duracion {
+  color: var(--turquesa);
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.lista-incluye {
+  padding-left: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+.lista-incluye li::marker {
+  color: var(--coral);
+}
+
+.precio {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--azul);
+}
+
+.precio small {
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: #6c7a89;
+}
+
+/* ---------- Modal de detalle ---------- */
+#modalPaquete .modal-header {
+  background: var(--azul);
+  color: #ffffff;
+}
+
+#modalPaquete .modal-title {
+  color: #ffffff;
+}
+
+#modalPaquete .modal-img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 0.75rem;
+}
+
+.politicas {
+  background: var(--arena);
+  border-left: 4px solid var(--coral);
+  border-radius: 0.5rem;
+  padding: 0.9rem 1rem 0.9rem 1.2rem;
+  font-size: 0.9rem;
+}
+
+/* ---------- Formularios ---------- */
+.form-card {
+  border: 0;
+  border-radius: 1rem;
+  box-shadow: 0 8px 28px rgba(10, 61, 98, 0.14);
+}
+
+.form-card .form-label {
+  font-weight: 600;
+  color: var(--azul);
+}
+
+.form-control:focus,
+.form-select:focus {
+  border-color: var(--turquesa);
+  box-shadow: 0 0 0 0.2rem rgba(20, 168, 160, 0.2);
+}
+
+.info-lateral {
+  background: linear-gradient(160deg, var(--azul), var(--azul-oscuro));
+  color: #ffffff;
+  border-radius: 1rem;
+}
+
+.info-lateral h4,
+.info-lateral h5 {
+  color: #ffffff;
+}
+
+.info-lateral i {
+  color: var(--coral);
+}
+
+/* ---------- Tabla de clientes ---------- */
+.tabla-clientes thead th {
+  background-color: var(--azul);
+  color: #ffffff;
+  white-space: nowrap;
+  border: 0;
+}
+
+.tabla-clientes tbody td {
+  vertical-align: middle;
+}
+
+.estado-vacio {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: #6c7a89;
+}
+
+.estado-vacio i {
+  font-size: 3rem;
+  color: var(--turquesa);
+}
+
+/* ---------- Footer ---------- */
+.footer-agencia {
+  background-color: var(--azul-oscuro);
+  color: rgba(255, 255, 255, 0.8);
+  flex-shrink: 0;
+}
+
+.footer-agencia h6 {
+  color: #ffffff;
+}
+
+.footer-agencia a {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+}
+
+.footer-agencia a:hover {
+  color: var(--coral);
+}
+
+/* ---------- Ajustes responsivos ---------- */
+@media (max-width: 767.98px) {
+  .carousel-agencia .carousel-item img {
+    height: 300px;
+  }
+
+  .hero {
+    min-height: 60vh;
+    text-align: center;
+  }
+
+  .hero .lead {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

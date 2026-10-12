@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Contacta a Agencia de Viajes Express.">
+  <title>Agencia de Viajes Express | Contacto</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+
+<body>
+
+  <header id="menu-principal"></header>
+
+  <main>
+    <section class="page-header">
+      <div class="container">
+        <h1><i class="bi bi-envelope me-2"></i>Contacto</h1>
+        <p>¿Dudas sobre un paquete? Escríbenos y te responderemos pronto.</p>
+      </div>
+    </section>
+
+    <section class="container my-5">
+      <div id="alerta-contacto"></div>
+
+      <div class="row g-4 justify-content-center">
+        <div class="col-lg-7 d-flex">
+          <div class="card form-card w-100">
+            <div class="card-body p-4">
+              <form id="form-contacto" novalidate>
+                <div class="mb-3">
+                  <label for="contacto-nombre" class="form-label">Nombre completo</label>
+                  <input type="text" class="form-control" id="contacto-nombre" placeholder="Tu nombre"
+                    autocomplete="name">
+                  <div class="invalid-feedback">El nombre es obligatorio.</div>
+                </div>
+
+                <div class="mb-3">
+                  <label for="contacto-correo" class="form-label">Correo electrónico</label>
+                  <input type="email" class="form-control" id="contacto-correo" placeholder="nombre@correo.com"
+                    autocomplete="email">
+                  <div class="invalid-feedback">Ingresa un correo electrónico válido.</div>
+                </div>
+
+                <div class="mb-4">
+                  <label for="contacto-mensaje" class="form-label">Mensaje</label>
+                  <textarea class="form-control" id="contacto-mensaje" rows="5"
+                    placeholder="Escribe tu mensaje..."></textarea>
+                  <div class="invalid-feedback">El mensaje es obligatorio.</div>
+                </div>
+
+                <button type="submit" class="btn btn-accent btn-lg w-100">
+                  <i class="bi bi-send me-2"></i>Enviar mensaje
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-5 d-flex">
+          <aside class="info-lateral p-4 w-100">
+            <h4 class="mb-4">Datos de la agencia</h4>
+            <p class="d-flex"><i class="bi bi-geo-alt-fill me-3 fs-5"></i><span>Av. Reforma 100, Col. Centro, Ciudad de
+                México</span></p>
+            <p class="d-flex"><i class="bi bi-telephone-fill me-3 fs-5"></i><span>(55) 1234 5678</span></p>
+            <p class="d-flex"><i class="bi bi-envelope-fill me-3 fs-5"></i><span>contacto@agenciaexpress.com</span></p>
+            <p class="d-flex"><i class="bi bi-clock-fill me-3 fs-5"></i><span>Lunes a sábado, 9:00 a 19:00 h</span></p>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="pie-pagina"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/utilidades.js"></script>
+  <script>
+    /* Validación del formulario de contacto: ningún campo puede ir vacío */
+    document.addEventListener('DOMContentLoaded', function () {
+      const formulario = document.getElementById('form-contacto');
+      const nombre = document.getElementById('contacto-nombre');
+      const correo = document.getElementById('contacto-correo');
+      const mensaje = document.getElementById('contacto-mensaje');
+      const campos = [nombre, correo, mensaje];
+
+      function validar(input) {
+        const valor = input.value.trim();
+        let valido = valor !== '';
+        if (input === correo && valido) valido = emailValido(valor);
+        input.classList.toggle('is-invalid', !valido);
+        input.classList.toggle('is-valid', valido);
+        return valido;
+      }
+
+      campos.forEach(function (c) {
+        c.addEventListener('blur', function () { validar(c); });
+        c.addEventListener('input', function () {
+          if (c.classList.contains('is-invalid')) validar(c);
+        });
+      });
+
+      formulario.addEventListener('submit', function (evento) {
+        evento.preventDefault();
+        const resultados = campos.map(validar);
+
+        if (resultados.includes(false)) {
+          mostrarAlerta('alerta-contacto',
+            'Completa todos los campos correctamente antes de enviar.', 'danger');
+          campos.find(function (c) { return c.classList.contains('is-invalid'); }).focus();
+          return;
+        }
+
+        mostrarAlerta('alerta-contacto',
+          '<strong>¡Mensaje enviado!</strong> Gracias, ' + escaparHTML(nombre.value.trim()) +
+          '. Nuestro equipo te responderá a ' + escaparHTML(correo.value.trim()) + '.',
+          'success');
+        formulario.reset();
+        campos.forEach(function (c) { c.classList.remove('is-valid', 'is-invalid'); });
+      });
+    });
+  </script>
+</body>
+
+</html>
